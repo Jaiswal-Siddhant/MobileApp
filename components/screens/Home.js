@@ -6,9 +6,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const Home = ({ navigation }) => {
 
-    const [products, setProducts] = useState([])
-    const [accessory, setAccessory] = useState([])
     const [sofa, setSofa] = useState([])
+    const [chair, setChair] = useState([])
 
 
     useEffect(() => {
@@ -20,33 +19,33 @@ const Home = ({ navigation }) => {
 
     //getting data from database
     const getDataFromDB = () => {
-        let productList = []
-        let accessoryList = []
         let sofaList = []
+        let chairList = []
 
         for (let index = 0; index < Items.length; index++) {
-            if (Items[index].category == 'product') {
-                productList.push(Items[index])
-            } else if (Items[index].category == 'accessory') {
-                accessoryList.push(Items[index])
-            } else if (Items[index].category == 'sofa') {
+            if (Items[index].category == 'sofa') {
                 sofaList.push(Items[index])
+            } else if (Items[index].category == 'sofa') {
+                chairList.push(Items[index])
             }
         }
 
-        setProducts(productList)
-        setAccessory(accessoryList)
+
         setSofa(sofaList)
-        console.log(sofaList);
+        setChair(chairList)
     }
 
     //Product card =>DRY
     const ProductCard = ({ data }) => {
         return (
+
             <TouchableOpacity
+                //navigating to the product info page on press operation on card
+                onPress={() => navigation.navigate("ProductInfo", { productID: data.id })}
                 style={{
                     width: '45%',
                     marginVertical: 15,
+                    padding: 5,
                 }}>
 
                 <View
@@ -59,37 +58,7 @@ const Home = ({ navigation }) => {
                         alignItems: 'center',
                         marginBottom: 10
                     }}>
-                    {
-                        data.isOff ? (
-                            <View
-                                style={{
-                                    position: 'absolute',
-                                    width: '15%',
-                                    height: '15%',
-                                    backgroundColor: COLOURS.red,
-                                    top: 0,
-                                    left: 0,
-                                    borderTopLeftRadius: 20,
-                                    borderBottomRightRadius: 20,
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
 
-                                }}>
-
-                                < Text
-                                    style={{
-                                        fontSize: 15,
-                                        color: COLOURS.blue,
-                                        fontWeight: '400',
-
-                                    }}>
-
-                                    {data.offPercentage}
-                                </Text>
-
-                            </View>
-                        ) : null
-                    }
 
                     {/*rendering product Image*/}
                     <Image
@@ -238,6 +207,7 @@ const Home = ({ navigation }) => {
                         </Text>
                     </View>
                 </View>
+                {/*Product Loading */}
                 <View
                     style={{
                         flexDirection: 'row',
@@ -250,6 +220,71 @@ const Home = ({ navigation }) => {
                         })
                     }
                 </View>
+
+                {/*chair section */}
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        padding: 10,
+                        justifyContent: 'space-between'
+
+                    }}
+                >
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <Text style={{
+                            fontSize: 19,
+                            color: COLOURS.black,
+                            fontWeight: '600',
+                            letterSpacing: 1,
+
+                        }}>
+                            Chair
+                        </Text>
+                        <Text style={{
+                            fontSize: 15,
+                            color: COLOURS.black,
+                            fontWeight: '500',
+                            opacity: 0.4,
+                            marginLeft: 15,
+                            marginTop: 5,
+
+                        }}>
+                            20
+                        </Text>
+                    </View>
+                    <View>
+                        <Text
+                            style={{
+                                fontSize: 15,
+                                color: COLOURS.black,
+                                marginTop: 6,
+                                paddingLeft: 130,
+                            }}>
+                            EXPLORE
+                        </Text>
+                    </View>
+                </View>
+
+                {/*Product Loading */}
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-between'
+                    }}>
+                    {
+                        sofa.map((data) => {
+                            return <ProductCard data={data} key={data.id} />
+                        })
+                    }
+                </View>
+
 
             </ScrollView>
         </View>

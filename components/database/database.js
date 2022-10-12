@@ -3,7 +3,7 @@ export const COLOURS = {
     black: '#000000',
     green: '#00AC76',
     red: '#C04345',
-    blue: '#0043F9',
+    blue: '#87CEEB',
     backgroundLight: '#F0F0F3',
     backgroundMedium: '#B9B9B9',
     backgroundDark: '#777777',
@@ -131,7 +131,7 @@ export const Items = [
         description:
             'Sofa by sleepwell company SUPER COMFY is their defination',
         isOff: false,
-        productImage: require('./images/sofa/sofa1.png'),
+        productImage: require('./images/sofa/sofa2.png'),
         isAvailable: true,
         productImageList: [
             require('./images/acceseries/boultairbass1.png'),
@@ -147,7 +147,7 @@ export const Items = [
         description:
             'Sofa by sleepwell company SUPER COMFY is their defination',
         isOff: false,
-        productImage: require('./images/sofa/sofa1.png'),
+        productImage: require('./images/sofa/sofa3.png'),
         isAvailable: true,
         productImageList: [
             require('./images/acceseries/boultairbass1.png'),
@@ -163,7 +163,7 @@ export const Items = [
         description:
             'Sofa by sleepwell company SUPER COMFY is their defination',
         isOff: false,
-        productImage: require('./images/sofa/sofa1.png'),
+        productImage: require('./images/sofa/chair1.png'),
         isAvailable: true,
         productImageList: [
             require('./images/acceseries/boultairbass1.png'),
@@ -179,7 +179,7 @@ export const Items = [
         description:
             'Sofa by sleepwell company SUPER COMFY is their defination',
         isOff: false,
-        productImage: require('./images/sofa/sofa1.png'),
+        productImage: require('./images/sofa/chair2.png'),
         isAvailable: true,
         productImageList: [
             require('./images/acceseries/boultairbass1.png'),
@@ -195,7 +195,7 @@ export const Items = [
         description:
             'Sofa by sleepwell company SUPER COMFY is their defination',
         isOff: false,
-        productImage: require('./images/sofa/sofa1.png'),
+        productImage: require('./images/sofa/chair3.png'),
         isAvailable: true,
         productImageList: [
             require('./images/acceseries/boultairbass1.png'),
